@@ -1,0 +1,11 @@
+<template name="mainLayout">
+  <h1>Invenstory</h1>
+
+  {{> loginButtons}}
+
+  <button type="button" id="modalLaunch" class="btn btn-primary btn-md">
+      Add new item
+    </button>
+  {{> addItem}}
+  {{> reactiveTable settings=settings}}
+</template>
