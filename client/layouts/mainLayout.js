@@ -23,9 +23,9 @@ Template.mainLayout.events({
     Session.set('selectedItem', selectedItem);
   },
 
-  "click #modalLaunch": function(e, template) {
+  "click #modalAddItem": function(e, template) {
     e.preventDefault();
-    $('#myModal').modal('toggle');
+    $('#modalAddItemForm').modal('toggle');
   }
 
 });
