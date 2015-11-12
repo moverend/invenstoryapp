@@ -1,0 +1,17 @@
+<template name="mainLayout">
+  {{> head}}
+  <div id="wrapper">
+    {{> navbar}} {{> sidebar}}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+      <h1>Invenstory</h1>
+
+      <button type="button" id="modalAddItem" class="btn btn-primary btn-md">
+        Add new item
+      </button>
+      {{> addItemForm}}
+
+      <div class="jumbotron">{{> reactiveTable settings=settings}}</div>
+      {{> inventoryView}}</div>
+  </div>
+</template>

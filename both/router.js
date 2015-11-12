@@ -6,8 +6,8 @@
   })
 
   Router.route('/', {
-    name: 'addItem',
-    template: 'addItem',
+    name: 'main',
+    template: 'mainLayout',
 
     waitOn: function() {
       return Meteor.subscribe("items");

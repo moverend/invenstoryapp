@@ -1,0 +1,28 @@
+<template name="sidebar">
+  <div class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+      <li class="active"><a href="#">Dashboard</a></li>
+      <li><a href="#">Inventory</a></li>
+      <li><a href="#">Orders</a></li>
+      <li class="parent ">
+        <a href="#">
+          <span data-toggle="collapse" href="#sub-item-1"></span>Categories
+        </a>
+        <ul class="children collapse" id="sub-item-1">
+          <li>
+            <a class="" href="#">Sub Item 1</a>
+          </li>
+          <li>
+            <a class="" href="#">Sub Item 2</a>
+          </li>
+          <li>
+            <a class="" href="#">Sub Item 3</a>
+          </li>
+        </ul>
+      </li>
+      <li role="presentation" class="divider"></li>
+      <li><a href="#">Settings</a></li>
+      <li>{{> loginButtons}}</li>
+    </ul>
+  </div>
+</template>
