@@ -8,7 +8,9 @@
     </div>
 
     <h2 class="sub-header">Section title</h2>
-
-    {{> reactiveTable settings=settings}}
-    
+    {{#if Template.subscriptionsReady}}
+      {{> reactiveTable settings=settings}}
+    {{else}}
+      Loading...
+    {{/if}}
 </template>

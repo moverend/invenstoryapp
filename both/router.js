@@ -12,7 +12,11 @@ Router.route('/dashboard', {
 
 Router.route('/inventory', {
   name: 'inventory',
-  template: 'inventoryView'
+  template: 'inventoryView',
+  subscriptions: function () {
+    var currentUser = Meteor.userId();
+    Meteor.subscribe("items", currentUser);
+  }
 });
 
 Router.route('/customers', {

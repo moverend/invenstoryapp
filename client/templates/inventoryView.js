@@ -1,7 +1,12 @@
+Template.inventoryView.onCreated(function() {
+  var self = this;
+  self.autorun(function () {
+    self.subscribe('userItems');
+  });
+});
+
+
 Template.inventoryView.helpers({
-  item: function(){
-    return Items.find();
-  },
   settings: function(){
     return {
       collection: Items,
@@ -16,7 +21,7 @@ Template.inventoryView.helpers({
         {key: 'customProps', label: 'Custom'},
       ]
     };
-  }
+  },
 });
 
 Template.inventoryView.events({
