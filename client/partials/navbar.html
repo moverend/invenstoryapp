@@ -8,12 +8,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">InvenStory</a>
+        <a class="navbar-brand" href="/">InvenStory</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li>{{> loginButtons align="right"}}</li>
-          <li><a href="#">Help</a></li>
+          {{#if currentUser}}
+            <li>{{> loginButtons align="right"}}</li>
+            <li><a href="#">Help</a></li>
+          {{else}}
+            <li><a href="{{pathFor route='login'}}">Login</a></li>
+          {{/if}}
         </ul>
       </div>
     </div>

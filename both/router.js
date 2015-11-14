@@ -1,8 +1,36 @@
 // ---- Iron:Router Routes ---- //
 
+ if(Meteor.isClient){
+   Accounts.onLogin(function(){
+     Router.go('dashboard');
+   });
+
+   Accounts.onLogout(function(){
+     Router.go('login');
+   });
+ }
+
+
 Router.configure({
   layoutTemplate: "mainLayout",
   loadingTemplate: "loading"
+});
+
+
+Router.route("/", function() {
+    if (Meteor.userId()) {
+      this.redirect("dashboard");
+    }
+},
+{
+  name:"home",
+  layoutTemplate: 'homeLayout'
+});
+
+Router.route("/login", {
+  name:"login",
+  template:"loginLayout",
+  layoutTemplate: 'loginLayout'
 });
 
 Router.route('/dashboard', {
@@ -13,10 +41,10 @@ Router.route('/dashboard', {
 Router.route('/inventory', {
   name: 'inventory',
   template: 'inventoryView',
-  subscriptions: function () {
-    var currentUser = Meteor.userId();
-    Meteor.subscribe("items", currentUser);
-  }
+  // subscriptions: function () {
+  //   var currentUser = Meteor.userId();
+  //   Meteor.subscribe("items", currentUser);
+  // }
 });
 
 Router.route('/customers', {
@@ -35,6 +63,23 @@ Router.route('/settings', {
 });
 
 
+// catchall route
+Router.route('/(.*)', function () {
+    this.redirect('/');
+});
+
+// we want to be sure that the user is logging in
+// for all routes but login
+Router.onBeforeAction(function () {
+    if (!Meteor.user() && !Meteor.loggingIn()) {
+        this.redirect('/login');
+    } else {
+        // required by Iron to process the route handler
+        this.next();
+    }
+}, {
+    except: ['login', 'home']
+});
 
 
 // Router.route('/list/:_id', {

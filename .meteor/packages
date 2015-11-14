@@ -28,7 +28,11 @@ fortawesome:fontawesome
 themeteorchef:jquery-validation
 accounts-password
 accounts-ui
+accounts-google
+accounts-facebook
+accounts-twitter
 
+gwendall:auth-client-callbacks
 aldeed:collection2
 aldeed:autoform
 aslagle:reactive-table
