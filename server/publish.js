@@ -1,4 +1,5 @@
 // ---- PUBLICATIONS ---- //
-Meteor.publish("items", function(){
-  return Items.find();
+Meteor.publish("userItems", function() {
+  var currentUser = this.userId;
+  return Items.find({createdBy: currentUser});
 });

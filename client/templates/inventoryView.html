@@ -1,9 +1,16 @@
 <template name="inventoryView">
-  <div class="well">
-    <ul>
-      {{#each item}}
-      <li>{{name}} {{amount}}</li>
-      {{/each}}
-    </ul>
-  </div>
+
+    <h1 class="page-header">Inventory</h1>
+
+    <div class="row placeholders">
+      <button type="button" id="modalAddItem" class="btn btn-primary btn-md">Add new item</button>
+      {{> addItemForm}}
+    </div>
+
+    <h2 class="sub-header">Section title</h2>
+    {{#if Template.subscriptionsReady}}
+      {{> reactiveTable settings=settings}}
+    {{else}}
+      Loading...
+    {{/if}}
 </template>
