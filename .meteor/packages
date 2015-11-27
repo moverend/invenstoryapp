@@ -35,4 +35,5 @@ accounts-twitter
 gwendall:auth-client-callbacks
 aldeed:collection2
 aldeed:autoform
+meteorblackbelt:accounts-entry
 aslagle:reactive-table
